@@ -4,6 +4,7 @@ import Food from './Food/Food.jsx';
 import Card from './Card/Card.jsx';
 import Button from './Button/Button.jsx';
 import Student from './Student/Student.jsx';
+import UserGreeting from './UserGreeting/UserGreeting.jsx';
 
 import profilePic from './assets/sung_jin_woo.jpg'
 import antonyPic from './assets/antony.jpg'
@@ -27,6 +28,7 @@ function App() {
         <Student />
         <Student name="Nguyen Thu Thao"/>
 
+        <UserGreeting isLoggedIn={true} username="Tuong Vy" />
         <Footer />
     </>
   );
