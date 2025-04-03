@@ -1,12 +1,10 @@
-import Header from './Header.jsx'
-import Footer from './Footer.jsx';
-import ProfilePicture from './ProfilePicture/ProfilePicture.jsx';
+import MyComponent from "./MyComponent/MyComponent";
 
 function App() {
 
   return(
     <>
-      <ProfilePicture />
+      <MyComponent />
     </>
   );
 }
