@@ -7,6 +7,7 @@ function MyComponent(){
     const [quantity, setQuantity] = useState();
     const [comment, setComment] = useState("");
     const [payment, setPayment] = useState("");
+    const [shipping, setShipping] = useState("");
 
     const [age, setAge] = useState(0);
     const [isEmployed, setIsEmployed] = useState(false);
@@ -43,6 +44,10 @@ function MyComponent(){
         setPayment(event.target.value);
     }
 
+    function handleShippingChange(event){
+        setShipping(event.target.value);
+    }
+
     return (
         <div>
             <input value={name} onChange={handleNameChange}></input>
@@ -64,6 +69,25 @@ function MyComponent(){
             </select>
 
             <p>Payment: {payment}</p>
+
+            <label>
+                <input type = "radio" value = "Pick Up" 
+                        checked = {shipping === "Pick Up"} 
+                        onChange={handleShippingChange}>
+                        </input>
+                Pick Up
+            </label>
+
+            <br></br>
+
+            <label>
+            <input type = "radio" value = "Delivery" 
+                        checked = {shipping === "Delivery"} 
+                        onChange={handleShippingChange}>
+                        </input>
+                Delivery
+            </label>
+            <p>Shipping: {shipping}</p>
         </div>
     );
 }
