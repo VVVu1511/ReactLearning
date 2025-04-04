@@ -1,10 +1,10 @@
-import ColorPicker from "./ColorPicker/ColorPicker";
+import Food from "./Food/Food";
 
 function App() {
 
   return(
     <>
-      <ColorPicker />
+      <Food />
     </>
   );
 }

@@ -10,11 +10,15 @@ function Counter(){
     };
 
     const incrementCounter = () => {
-        setCount(count + 1)
+        setCount(prevCount => prevCount + 1);
+        setCount(prevCount => prevCount + 1);
+        setCount(prevCount => prevCount + 1);
     };
 
     const decrementCounter = () => {
-        setCount(count - 1)
+        setCount(count => count - 1);
+        setCount(count => count - 1);
+        setCount(count => count - 1);
     };
 
     return (
