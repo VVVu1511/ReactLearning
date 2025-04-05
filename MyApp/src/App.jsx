@@ -1,10 +1,10 @@
-import Food from "./Food/Food";
+import MyComponent from "./MyComponent/MyComponent";
 
 function App() {
 
   return(
     <>
-      <Food />
+      <MyComponent />
     </>
   );
 }
