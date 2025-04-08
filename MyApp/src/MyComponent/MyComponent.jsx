@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useRef, useState, useEffect} from "react"
 
 
 function MyComponent(){
@@ -145,18 +145,18 @@ function MyComponent(){
 
     // const [count, setCount] = useState(0);
     // const [color, setColor] = useState("green");
-    const [width, setWidth] = useState(window.innerWidth);
-    const [height, setHeight] = useState(window.innerHeight);
+    // const [width, setWidth] = useState(window.innerWidth);
+    // const [height, setHeight] = useState(window.innerHeight);
 
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-        console.log('Event listener');
+    // useEffect(() => {
+    //     window.addEventListener("resize", handleResize);
+    //     console.log('Event listener');
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            console.log('Event listener removed');
-        }
-    }, []);
+    //     return () => {
+    //         window.removeEventListener("resize", handleResize);
+    //         console.log('Event listener removed');
+    //     }
+    // }, []);
 
     // useEffect(() => {
     //     document.title = `Count: ${count} ${color}`;
@@ -174,18 +174,72 @@ function MyComponent(){
     //     setColor(c => c === "green" ? "red" : "green");
     // }
 
-    function handleResize(){
-        setWidth(window.innerWidth);
-        setHeight(window.innerHeight);
+    // function handleResize(){
+    //     setWidth(window.innerWidth);
+    //     setHeight(window.innerHeight);
+    // }
+
+    // return (
+    //     <>
+    //         <p>Window Width: {width} px</p>
+    //         <p>Window Height: {height} px</p>
+    //     </>
+    // )
+
+    const inputRef1 = useRef(null);
+    const inputRef2 = useRef(null);
+    const inputRef3 = useRef(null);
+    
+    useEffect(() => {
+        console.log("COMPONENT RENDERED");
+        console.log(inputRef1);
+    });
+
+    function handleClick1(){
+        inputRef1.current.focus();
+        inputRef1.current.style.backgroundColor = "yellow";
+        inputRef2.current.style.backgroundColor = "";
+        inputRef3.current.style.backgroundColor = "";
+    }
+
+    function handleClick2(){
+        inputRef2.current.focus();
+        inputRef2.current.style.backgroundColor = "yellow";
+        inputRef1.current.style.backgroundColor = "";
+        inputRef3.current.style.backgroundColor = "";
+    }
+
+    function handleClick3(){
+        inputRef3.current.focus();
+        inputRef3.current.style.backgroundColor = "yellow";
+        inputRef2.current.style.backgroundColor = "";
+        inputRef1.current.style.backgroundColor = "";
     }
 
     return (
-        <>
-            <p>Window Width: {width} px</p>
-            <p>Window Height: {height} px</p>
-        </>
-    )
+        <div>
+            <button onClick={handleClick1}>
+                Click me 1! 
+            </button>
+    
+            <input ref={inputRef1}></input>
 
+            <br></br>
+
+            <button onClick={handleClick2}>
+                Click me 2!
+            </button>
+    
+            <input ref={inputRef2}></input>
+            <br></br>
+
+            <button onClick={handleClick3}>
+                Click me 3!
+            </button>
+    
+            <input ref={inputRef3}></input>
+        </div>
+    )
 }
 
 export default MyComponent
